@@ -70,6 +70,6 @@ function sum() {
       sum += num;
     }
     return sum;
-  }
+}
   
-  alert( sum() );
+alert( sum() );
