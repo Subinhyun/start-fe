@@ -27,16 +27,21 @@ function addBox(){
 }
 
 function deleteBox() {
-    $box[$box.length - 1].remove();
+    if($box.length === 0) return;
+
+    $box[$box.length-1].remove();
 }
 
 function reset() {
-    $box.remove();
+    for (i = $box.length; i > 0; i--) {
+        $box[i - 1].remove();
+    }
 }
 
 function addText() {
+    text = document.getElementsByClassName("txt");
     for(i = 0; i < $box.length; i++) {
-        $box.value = $textBtn.value;
+        $box[i].innerHtml = text[0].value;
     }   
 }
 
