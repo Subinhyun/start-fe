@@ -3,6 +3,7 @@ const $box = document.querySelector('.box');
 let isDown = false;
 let offset = {x:0, y:0};
 let dragged = null;
+let position = 10;
 
 function dragBox(el) {
     el.addEventListener('mousedown', (event) => {
@@ -10,6 +11,7 @@ function dragBox(el) {
         dragged = el;
         offset.x = el.offsetLeft - event.clientX;
         offset.y = el.offsetTop - event.clientY;
+        el.style['zIndex'] = position++; // 선택된 박스가 위로 올라가도록!
     });
 }
 

@@ -10,6 +10,8 @@ $bug.addEventListener('click', (e) => {
     point += 1;
     $point.innerHTML = point;
     moveBug();
+    e.stopPropagation(); 
+    // 이 부분을 넣어줘야 빨간 타켓 클릭 시 점수와 생명이 동시에 +1, -1 되지 않음!
 });
 
 $box.addEventListener('click', missBug);
@@ -27,8 +29,10 @@ function getRandom(num){
     return Math.floor(Math.random() * num);
 }
 
-function missBug() {
-    if(life === 0) alert('gameover');
+function missBug(event) {
+    if(life === 0) {
+        alert('gameover');
+    }
 
     life -= 1;
     $life.innerHTML = life;
