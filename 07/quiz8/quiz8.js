@@ -8,12 +8,16 @@ let num = 0;
 
 $btn.addEventListener('click', () => {
     const randomNumber = Math.floor(Math.random() * ($max.value - $min.value) + $min.value);
-    console.log($min.value);
-    console.log($max.value);
-    console.log(randomNumber);
+
     const interval = setInterval(() => {
-        $box.innerHTML = num++;
         $btn.disabled = true;
+        //console.log(randomNumber);
+        
+        if(num < randomNumber) num++;
+        else if(num > randomNumber) num--;
+        
+        $box.innerHTML = num;
+        
         if(num === randomNumber){
             $btn.disabled = false;
             clearInterval(interval);
