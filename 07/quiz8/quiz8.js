@@ -7,8 +7,10 @@ const $btn = document.getElementById('btn');
 let num = 0;
 
 $btn.addEventListener('click', () => {
-    const randomNumber = Math.floor(Math.random() * ($max.value - $min.value)) + $min.value;
-
+    const randomNumber = Math.floor(Math.random() * ($max.value - $min.value) + $min.value);
+    console.log($min.value);
+    console.log($max.value);
+    console.log(randomNumber);
     const interval = setInterval(() => {
         $box.innerHTML = num++;
         $btn.disabled = true;
@@ -18,12 +20,3 @@ $btn.addEventListener('click', () => {
         }
     }, 5);
 });
-
-// function increased() {
-//     $box.innerHTML = num++;
-//     $btn.disabled = true;
-//     if(num === getRandomNumber()){
-//         $btn.disabled = false;
-//         clearInterval(interval);
-//     }
-// }
